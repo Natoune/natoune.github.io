@@ -1,44 +1,130 @@
 <!DOCTYPE html>
 <html>
 <head>
-      <title>DON'T COPY !!!</title>
-      <meta name="description" content="A link to send if a guy tries to steal your creation !">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Just a moment...</title>
+  <link href="https://vjs.zencdn.net/7.15.4/video-js.css" rel="stylesheet" />
+  <style type="text/css">
+    html {
+      height: 100%;
+    }
+
+    body {
+      min-height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: black;
+    }
+
+    .video-js {
+      display: block;
+      width: 100%;
+      height: 100vh;
+    }
+  </style>
+  <style type="text/css">
+    html, body {width: 100%; height: 100%; margin: 0; padding: 0;}
+    body { color: #000000; font-family:-apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, "Helvetica Neue",Arial, sans-serif; font-size: 16px; line-height: 1.7em;-webkit-font-smoothing: antialiased;}
+    h1 { text-align: center; font-weight:700; margin: 16px 0; font-size: 32px; color:#000000; line-height: 1.25;}
+    p {font-size: 20px; font-weight: 400; margin: 8px 0;}
+    p, .attribution, {text-align: center;}
+    #spinner {margin: 0 auto 30px auto; display: block;}
+    .attribution {margin-top: 32px;}
+    @keyframes fader     { 0% {opacity: 0.2;} 50% {opacity: 1.0;} 100% {opacity: 0.2;} }
+    @-webkit-keyframes fader { 0% {opacity: 0.2;} 50% {opacity: 1.0;} 100% {opacity: 0.2;} }
+    #cf-content { height: 500vh; position: absolute; width: 100%; background: #fff; }
+    #cf-bubbles, #cf-content p, .attribution { display: block; width: max-content; margin: auto; }
+    #cf-bubbles { margin-top: 12% }
+    .attribution { margin-top: 4% }
+    #cf-bubbles > .bubbles { animation: fader 1.6s infinite;}
+    #cf-bubbles > .bubbles:nth-child(2) { animation-delay: .2s;}
+    #cf-bubbles > .bubbles:nth-child(3) { animation-delay: .4s;}
+    .bubbles { background-color: #f58220; width:20px; height: 20px; margin:2px; border-radius:100%; display:inline-block; }
+    a { color: #2c7cb0; text-decoration: none; -moz-transition: color 0.15s ease; -o-transition: color 0.15s ease; -webkit-transition: color 0.15s ease; transition: color 0.15s ease; }
+    a:hover{color: #f4a15d}
+    .attribution{font-size: 16px; line-height: 1.5;}
+    .ray_id{display: block; margin-top: 8px;}
+    #cf-wrapper #challenge-form { padding-top:25px; padding-bottom:25px; }
+    #cf-hcaptcha-container { text-align:center;}
+    #cf-hcaptcha-container iframe { display: inline-block;}
+  </style>
 </head>
 <body>
-      <div id="player" style="pointer-events:none;position:absolute;top:0;left:0"></div>
+  <div id="cf-content" onclick="clicked()" style="display:none">
+    <div style="position: absolute; top: -250px; left: -250px;"><a href="https://noabcla.com/cultured.php?more=18">table</a></div>
+    <div id="cf-bubbles">
+      <div class="bubbles"></div>
+      <div class="bubbles"></div>
+      <div class="bubbles"></div>
+    </div>
+    <h1><span data-translate="checking_browser">Checking your browser before accessing</span> the website.</h1>
+    
+    <div id="no-cookie-warning" class="cookie-warning" data-translate="turn_on_cookies" style="display:none">
+      <p data-translate="turn_on_cookies" style="color:#bd2426;">Please enable Cookies and reload the page.</p>
+    </div>
+    <p data-translate="process_is_automatic">This process is not automatic. Your browser will redirect to your requested content shortly.</p>
+    <p style="font-size: 160%; margin-top: 1%" data-translate="allow_5_secs" id="cf-spinner-allow-5-secs" ><a href="#cf_index_verification_code=12&ray_version=iRsANrwf7L4NRVYsx85e269K22a55MvdRtxxKYqm92LSf4zQdV46V9929tcSJ6d9tb2x8ufd35QBD8PFwVWrtN4SiD43e439">Please click here to verify that you are not a robot&hellip;</a></p>
+    <p data-translate="redirecting" id="cf-spinner-redirecting" style="display:none">Redirecting&hellip;</p>
 
-      <script>
-            // 2. This code loads the IFrame Player API code asynchronously.
-            var tag = document.createElement('script');
+    <div class="attribution">
+      DDoS protection by <a rel="noopener noreferrer" href="#https://cloudflare.com/">Cloudflare</a>
+      <br />
+      <span class="ray_id">Ray ID: <code id="ray_id"></code></span>
+    </div>
+  </div>
 
-            tag.src = "https://www.youtube.com/iframe_api";
-            var firstScriptTag = document.getElementsByTagName('script')[0];
-            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+  <main style="display:none;">
+    <video
+      id="my-video"
+      class="video-js"
+      controls
+      preload="auto"
+      width="640"
+      height="264"
+      poster="poster.png"
+      data-setup='{ "controls": false, "loop": true, "preload": "auto" }'
+    >
+      <source src="http://www.lasesp.com/vid.mp4" type="video/mp4" />
+      <p class="vjs-no-js">
+        To view this video please enable JavaScript, and consider upgrading to a
+        web browser that
+        <a href="https://videojs.com/html5-video-support/" target="_blank"
+          >supports HTML5 video</a
+        >
+      </p>
+    </video>
 
-            // 3. This function creates an <iframe> (and YouTube player)
-            //    after the API code downloads.
-            var player;
-            function onYouTubeIframeAPIReady() {
-              player = new YT.Player('player', {
-                height: '100%',
-                width: '100%',
-                videoId: 'iik25wqIuFo',
-                playerVars: { 'autoplay': 1, 'controls': 0 , 'disablekb': 1, 'loop': 1, 'rel': 0, 'modestbranding': 1, 'showinfo': 0},
-                events: {
-                  'onReady': onPlayerReady
-                }
-              });
-            }
+  </main>
 
-            if (player.getCurrentTime() >= 4) {
-                 alert("MAAAA");
-            }
+  <script src="https://vjs.zencdn.net/7.15.4/video.min.js"></script>
+  <script src="can_autoplay/build/can-autoplay.min.js"></script>
+  <script>
+    function strRandom(){var r="",n=0,o="abcdefghijklmnopqrstuvwxyz";for(o+="12345678901234567890";n<16;n++)r+=o[Math.floor(Math.random()*o.length)];return r}
+    document.getElementById("ray_id").innerHTML = strRandom();
 
-            // 4. The API will call this function when the video player is ready.
-            function onPlayerReady(event) {
-              event.target.playVideo();
-            }
+    var player = videojs('my-video', {});
 
-      </script>
+    canAutoplay.video().then(function(obj) {
+      if (obj.result === true) {
+        player.autoplay(true);
+        document.querySelector('main').style.display = 'block';
+        document.title = "RICKROLLED !!!";
+      } else {
+        player.autoplay(false);
+        document.getElementById('cf-content').style.display = 'block';
+      }
+    });
+
+    function clicked() {
+      document.getElementById('cf-content').style.display = 'none';
+      document.querySelector('main').style.display = 'block';
+      document.title = "RICKROLLED !!!";
+
+      player.play();
+    }
+  </script>
 </body>
 </html>
