@@ -1,10 +1,10 @@
 /* SITE */
     Site name: Natoune Github
     Site URL: https://natoune.github.io
-    Contact: contact [at] natoune.tk
+    Contact: contact [at] natoune.fr
     
     Editor: Natoune
-    URL: https://natoune.tk
-    Contact: contact [at] natoune.tk
+    URL: https://natoune.fr
+    Contact: contact [at] natoune.fr
     Twitter : @Nat0une_
     Location: France
